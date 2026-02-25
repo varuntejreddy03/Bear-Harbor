@@ -169,13 +169,72 @@ export const siteContent = {
     }
   ],
   industries: [
-    'Construction & Infrastructure',
-    'Cement & Aggregates',
-    'Steel & Metallurgy',
-    'Manufacturing & Fabrication',
-    'Chemicals & Processing',
-    'Agro-Industrial Processing',
-    'Packaging & Distribution'
+    {
+      title: 'Tech & Electronics',
+      icon: 'developer_board',
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+      items: [
+        'Semiconductors & IC',
+        'Physical / active electronic components',
+        'Printed Circuit Board (PCB)',
+        'Power electronics modules',
+        'Sensors & electronic modules',
+        'Electronics manufacturing sub-assemblies',
+        'Tools & equipment for electronics manufacturing'
+      ]
+    },
+    {
+      title: 'Distribution & Warehousing',
+      icon: 'inventory_2',
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
+      items: [
+        'Storage & material handling equipment',
+        'Material handling',
+        'Shelving & accessories',
+        'Packaging & system products',
+        'Industrial tools, clamps & fittings',
+        'Cold storage & temperature control',
+        'Warehouse technology equipment'
+      ]
+    },
+    {
+      title: 'Tech & Semiconductors',
+      icon: 'memory',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
+      items: [
+        'Semi-conductors & ICs',
+        'Passive & Active electronic components',
+        'Printed Circuit Boards (PCBs)',
+        'Board electronics & modules',
+        'Electronics manufacturing sub-assemblies',
+        'Tools & consumables for electronics manufacturing'
+      ]
+    },
+    {
+      title: 'Retail & E-Commerce',
+      icon: 'shopping_bag',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800',
+      items: [
+        'Home textiles',
+        'Kitchenware',
+        'Yoga & wellness products',
+        'Bathroom accessories'
+      ]
+    },
+    {
+      title: 'Food & Beverage',
+      icon: 'restaurant',
+      image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&q=80&w=800',
+      items: [
+        'Spices & cooking ingredients',
+        'Snacks & confectionery',
+        'Baking & beverage products',
+        'Oil & ghee',
+        'Dairy products',
+        'Health & diagnostic foods',
+        'Rice and basmati rice'
+      ]
+    }
   ]
 };
 

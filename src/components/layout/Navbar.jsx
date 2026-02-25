@@ -30,60 +30,72 @@ const Navbar = () => {
 
   const navLinks = siteContent.navigation;
 
-  const shouldShowDarkText = isScrolled;
-
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-xl py-3 shadow-2xl border-b border-black/5' : 'bg-transparent py-5'}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
+    <nav
+      className={`fixed w-full z-50 transition-all duration-400 ${isScrolled
+        ? 'py-3 border-b border-white/[0.06] bg-deep/95 backdrop-blur-md shadow-xl'
+        : 'py-5 border-b border-transparent bg-deep/40 backdrop-blur-md'
+        }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+        {/* Logo left */}
         <NavLink to="/" className="flex items-center gap-3 group no-underline">
-          <div className={`size-10 rounded-sm flex items-center justify-center transition-all duration-500 ${shouldShowDarkText ? 'bg-primary text-accent shadow-lg' : 'bg-white/10 text-white backdrop-blur-md border border-white/20'}`}>
-            <span className="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">all_inclusive</span>
+          <div className="relative size-10 flex items-center justify-center">
+            <div className="absolute inset-0 border border-accent/30 rotate-45 transition-transform duration-500 group-hover:rotate-90 group-hover:border-accent"></div>
+            <div className="absolute inset-1.5 border border-accent/60 -rotate-12 transition-transform duration-700 group-hover:rotate-0"></div>
+            <span className="material-symbols-outlined text-accent text-lg relative z-10">hub</span>
           </div>
-          <div className="flex flex-col">
-            <span className={`text-xl font-serif font-black tracking-tighter transition-colors duration-500 uppercase ${shouldShowDarkText ? 'text-primary' : 'text-white'}`}>
-              BEAR <span className="text-accent italic font-light">HARBOR</span>
+          <div className="flex flex-col -gap-1">
+            <span className="text-xl font-serif font-bold tracking-tight text-text-heading uppercase leading-none">
+              Bear <span className="text-accent italic font-normal">Harbor</span>
             </span>
+            <span className="label text-[7px] tracking-[0.3em] opacity-50 uppercase">Institutional</span>
           </div>
         </NavLink>
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-10">
-          <div className="flex items-center gap-8">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 relative group/link ${isActive
-                    ? 'text-accent'
-                    : shouldShowDarkText ? 'text-primary/60 hover:text-primary' : 'text-white/80 hover:text-white'
-                  }`
-                }
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover/link:w-full"></span>
-              </NavLink>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-4 ml-6 pl-6 border-l border-current/10">
+        {/* Center nav links — DM Sans caps */}
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
             <NavLink
-              to="/contact"
-              className={`btn !py-2.5 !px-8 !text-[9px] shadow-2xl transition-all duration-500 ${shouldShowDarkText ? 'btn-primary shadow-primary/10' : 'btn-accent shadow-accent/20'}`}
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `relative text-[11px] font-label font-medium uppercase tracking-[0.15em] transition-colors duration-300 no-underline pb-1 ${isActive
+                  ? 'text-accent'
+                  : 'text-text-muted hover:text-text-heading'
+                }`
+              }
             >
-              CLIENT PORTAL
+              {({ isActive }) => (
+                <>
+                  {link.name}
+                  {isActive && (
+                    <motion.span layoutId="navUnderline" className="absolute bottom-0 left-0 w-full h-px bg-accent" />
+                  )}
+                </>
+              )}
             </NavLink>
-          </div>
+          ))}
+        </div>
+
+        {/* Right: CLIENT PORTAL button */}
+        <div className="hidden lg:flex items-center">
+          <NavLink
+            to="/contact"
+            className="btn btn-gold-ghost !py-2.5 !px-7 !text-[10px] no-underline"
+          >
+            CLIENT PORTAL
+          </NavLink>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden flex flex-col gap-1.5 p-2 group"
+          className="lg:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <div className={`w-6 h-[2px] transition-all duration-500 rounded-full ${shouldShowDarkText ? 'bg-primary' : 'bg-white'} ${isMobileMenuOpen ? 'rotate-45 translate-y-2 !bg-white' : ''}`}></div>
-          <div className={`w-6 h-[2px] transition-all duration-500 rounded-full ${shouldShowDarkText ? 'bg-primary' : 'bg-white'} ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
-          <div className={`w-4 h-[2px] transition-all duration-500 rounded-full self-end ${shouldShowDarkText ? 'bg-primary' : 'bg-white'} ${isMobileMenuOpen ? '-rotate-45 -translate-y-2 !w-6 !bg-white' : ''}`}></div>
+          <div className={`w-6 h-[1.5px] bg-text-heading transition-all duration-400 ${isMobileMenuOpen ? 'rotate-45 translate-y-[5px]' : ''}`} />
+          <div className={`w-6 h-[1.5px] bg-text-heading transition-all duration-400 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+          <div className={`w-4 h-[1.5px] bg-text-heading transition-all duration-400 self-end ${isMobileMenuOpen ? '-rotate-45 -translate-y-[5px] !w-6' : ''}`} />
         </button>
       </div>
 
@@ -91,35 +103,39 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 h-screen bg-primary z-[60] flex flex-col overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 h-screen z-[60] flex flex-col bg-deep"
           >
-            <div className="noise-overlay opacity-20"></div>
-
-            <div className="flex justify-between items-center p-10 relative z-10">
-              <span className="text-white font-serif font-black italic text-2xl uppercase tracking-tighter">BH</span>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-white/60 hover:text-white transition-colors"
-              >
-                <span className="material-symbols-outlined text-4xl">close</span>
+            <div className="flex justify-between items-center p-8">
+              <div className="flex items-center gap-3">
+                <div className="relative size-8 flex items-center justify-center">
+                  <div className="absolute inset-0 border border-accent/30 rotate-45"></div>
+                  <span className="material-symbols-outlined text-accent text-sm relative z-10">hub</span>
+                </div>
+                <span className="text-text-heading font-serif font-bold text-xl uppercase tracking-tight">Bear <span className="text-accent italic font-normal">Harbor</span></span>
+              </div>
+              <button onClick={() => setIsMobileMenuOpen(false)} className="text-text-muted hover:text-text-heading transition-colors">
+                <span className="material-symbols-outlined text-3xl">close</span>
               </button>
             </div>
 
-            <div className="flex flex-col items-center justify-center flex-grow gap-12 relative z-10">
+            <div className="flex flex-col items-center justify-center flex-grow gap-10">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.path}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.06 }}
                 >
                   <NavLink
                     to={link.path}
-                    className="text-white text-4xl font-serif font-black italic uppercase tracking-tighter hover:text-accent transition-all hover:scale-110 block"
                     onClick={() => setIsMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `text-3xl font-serif font-bold uppercase tracking-tight transition-colors no-underline ${isActive ? 'text-accent' : 'text-text-heading hover:text-accent'}`
+                    }
                   >
                     {link.name}
                   </NavLink>
@@ -127,15 +143,15 @@ const Navbar = () => {
               ))}
               <NavLink
                 to="/contact"
-                className="btn btn-accent mt-10 w-64 !text-xs"
+                className="btn btn-gold-ghost mt-6 !px-12 no-underline"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Client Portal
+                CLIENT PORTAL
               </NavLink>
             </div>
 
-            <div className="p-10 text-center relative z-10">
-              <p className="text-[10px] text-white/30 font-black uppercase tracking-[0.3em]">United States | India | Global Origins</p>
+            <div className="p-8 text-center">
+              <p className="label text-[10px]">Zurich · Singapore · New York · Dubai</p>
             </div>
           </motion.div>
         )}
@@ -145,4 +161,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

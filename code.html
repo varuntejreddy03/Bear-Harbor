@@ -108,57 +108,73 @@
             );
         };
 
-        const Footer = () => (
-            <footer className="bg-surface border-t border-border pt-16 pb-8 bg-white">
-                <div className="mx-auto max-w-7xl px-6 lg:px-10">
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
-                        <div className="col-span-2 lg:col-span-2">
-                            <div className="flex items-center gap-2 text-primary mb-6">
-                                <span className="material-symbols-outlined text-3xl">language</span>
-                                <span className="text-xl font-bold">Global Source</span>
+        const Footer = () => {
+            return (
+                <footer className="bg-[#0e1a2a] text-white pt-24 pb-12 relative overflow-hidden w-full">
+                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
+                    <div className="layout-container mx-auto max-w-7xl px-6 lg:px-10">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
+                            <div className="lg:col-span-4 space-y-8">
+                                <div className="flex items-center gap-3 no-underline">
+                                    <div className="size-10 bg-accent flex items-center justify-center rounded-sm text-primary">
+                                        <span className="material-symbols-outlined text-2xl font-bold">language</span>
+                                    </div>
+                                    <span className="text-2xl font-serif font-bold tracking-tight text-white uppercase italic">BEAR HARBOR</span>
+                                </div>
+                                <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+                                    We are a U.S.-based global sourcing and trade facilitation firm focused on containerized and bulk industrial commodities.
+                                </p>
                             </div>
-                            <p className="text-secondary text-sm leading-relaxed max-w-sm mb-6">
-                                Global Source is a premier trade facilitation firm, connecting markets with integrity and efficiency since 1985.
+                            <div className="lg:col-span-2 space-y-8">
+                                <h4 className="font-serif font-bold text-accent mb-6 text-sm uppercase tracking-widest italic">Company</h4>
+                                <ul className="space-y-4 text-sm text-gray-400 list-none p-0">
+                                    <li><a href="#" className="hover:text-white transition-colors no-underline">About Our Legacy</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors no-underline">Global Industries</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors no-underline">Contact Desk</a></li>
+                                </ul>
+                            </div>
+                            <div className="lg:col-span-2 space-y-8">
+                                <h4 className="font-serif font-bold text-accent mb-6 text-sm uppercase tracking-widest italic">Expertise</h4>
+                                <ul className="space-y-4 text-sm text-gray-400 list-none p-0">
+                                    <li><a href="#" className="hover:text-white transition-colors no-underline">Sourcing Operations</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors no-underline">Logistics & Supply</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors no-underline">Trade Facilitation</a></li>
+                                </ul>
+                            </div>
+                            <div className="lg:col-span-4 space-y-8">
+                                <h4 className="font-serif font-bold text-accent mb-6 text-sm uppercase tracking-widest italic">Global Operations</h4>
+                                <div className="space-y-4 text-sm text-gray-400">
+                                    <div className="flex items-start gap-4">
+                                        <span className="material-symbols-outlined text-accent text-xl">location_on</span>
+                                        <span>Hubs in Zurich, Singapore, New York, and Dubai.</span>
+                                    </div>
+                                    <div className="pt-6">
+                                        <div className="bg-white/5 border border-white/10 p-4 rounded-sm">
+                                            <span className="text-[10px] font-bold uppercase tracking-widest text-accent block mb-2">Subscribe to News</span>
+                                            <div className="flex gap-2">
+                                                <input type="email" placeholder="trade@firm.com" className="bg-transparent border-b border-white/20 text-xs py-2 outline-none w-full" />
+                                                <button className="text-accent underline uppercase text-[10px] font-bold tracking-widest">Join</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                            <p className="text-[10px] font-medium text-gray-500 uppercase tracking-[0.3em]">
+                                © 2026 BEAR HARBOR AG. STRUCTURED FOR GLOBAL EXCELLENCE.
                             </p>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-primary mb-4">Company</h4>
-                            <ul className="space-y-3 text-sm text-secondary">
-                                <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-                                <li><Link to="#" className="hover:text-primary transition-colors">Careers</Link></li>
-                                <li><Link to="#" className="hover:text-primary transition-colors">Sustainability</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-primary mb-4">Services</h4>
-                            <ul className="space-y-3 text-sm text-secondary">
-                                <li><Link to="/sourcing" className="hover:text-primary transition-colors">Global Sourcing</Link></li>
-                                <li><Link to="/services" className="hover:text-primary transition-colors">Logistics</Link></li>
-                                <li><Link to="#" className="hover:text-primary transition-colors">Trade Finance</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-primary mb-4">Legal</h4>
-                            <ul className="space-y-3 text-sm text-secondary">
-                                <li><Link to="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-                                <li><Link to="#" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-                            </ul>
+                            <div className="flex gap-x-10 text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">
+                                <span>Zurich</span>
+                                <span>Singapore</span>
+                                <span>New York</span>
+                                <span>Dubai</span>
+                            </div>
                         </div>
                     </div>
-                    <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-secondary">
-                        <p>© 2024 Global Source AG. All rights reserved.</p>
-                        <div className="mt-4 md:mt-0 flex gap-6">
-                            <span>Zurich</span>
-                            <span>Singapore</span>
-                            <span>New York</span>
-                            <span>Dubai</span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        );
-
-        // --- Screen Components ---
+                </footer>
+            );
+        };  // --- Screen Components ---
 
         // Screen 1: About (Institutional Trust)
         const AboutPage = () => {
@@ -439,6 +455,44 @@
 
         // Screen 3: Services (Structured Trade Solutions)
         const ServicesPage = () => {
+            const industries = [
+                {
+                    title: 'Tech & Electronics',
+                    icon: 'developer_board',
+                    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=75&w=800',
+                    items: ['Semiconductors & IC', 'Active Components', 'PCB Assemblies', 'Power Electronics', 'Sensors']
+                },
+                {
+                    title: 'Distribution & Warehousing',
+                    icon: 'inventory_2',
+                    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=75&w=800',
+                    items: ['Material Handling', 'Medical Solutions', 'Packaging & Logistics', 'Cold Storage', 'Warehouse Tech']
+                },
+                {
+                    title: 'Food & Beverage',
+                    icon: 'restaurant',
+                    image: 'https://images.unsplash.com/photo-1506484334402-40ff22e0d467?auto=format&fit=crop&q=75&w=800',
+                    items: ['Spices & Ingredients', 'Dairy & Edibles', 'Rice & Basmati', 'Diagnostic Foods', 'Snacks']
+                },
+                {
+                    title: 'Logistics & Medical Handling',
+                    icon: 'local_shipping',
+                    image: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=75&w=800',
+                    items: ['Medical Solutions', 'Packaging & Logistics', 'Tracking & Mapping', 'Industrial Tools']
+                },
+                {
+                    title: 'Textiles & Tech Goods',
+                    icon: 'checkroom',
+                    image: 'https://images.unsplash.com/photo-1524234107056-1c1f48f64ab8?auto=format&fit=crop&q=75&w=800',
+                    items: ['Industrial Textiles', 'Retail Textiles', 'Tech Accessories']
+                },
+                {
+                    title: 'Retail & E-Commerce',
+                    icon: 'shopping_bag',
+                    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=75&w=800',
+                    items: ['Home Textiles', 'Kitchenware', 'Yoga & Wellness', 'Bathroom Accessories']
+                }
+            ];
             return (
                 <div className="flex flex-col min-h-screen w-full bg-background-light items-center">
                     <Header activePage="Services" />
@@ -656,14 +710,14 @@
                                     <span className="text-accent font-bold uppercase tracking-[0.2em] text-xs">Global Trade Solutions</span>
                                 </div>
                                 <h1 className="text-white text-5xl font-serif font-semibold leading-tight tracking-tight md:text-7xl mb-8">
-                                    Industrial Trade,<br/>
-                                    <span className="relative inline-block">
+                                    Product and Market,<br/>
+                                    <span className="relative inline-block font-serif italic font-light">
                                         Executed with Precision.
                                         <svg className="absolute -bottom-2 left-0 w-full h-3 text-accent opacity-80" fill="none" preserveAspectRatio="none" viewBox="0 0 200 9" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99997C2.00025 6.99997 64.9048 1.99997 197.5 1.99999" stroke="currentColor" strokeLinecap="round" strokeWidth="3"></path></svg>
                                     </span>
                                 </h1>
-                                <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl border-l-2 border-gray-700 pl-6">
-                                    We bridge the gap between international suppliers and industrial buyers, connecting global markets with reliable supply chains for raw materials and commodities.
+                                <p className="text-gray-300 text-lg md:text-xl font-serif font-light leading-relaxed mb-12 max-w-2xl border-l-2 border-gray-700 pl-6">
+                                    We specialize in structured sourcing of industrial raw materials and bulk commodities from India and select global origins — delivering reliable, compliant, and scalable supply solutions for B2B clients worldwide.
                                 </p>
                                 <div className="flex flex-wrap gap-5">
                                     <Link to="/contact" className="cursor-pointer flex items-center justify-center rounded-sm h-14 px-8 bg-accent text-white text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-primary transition-all duration-300 shadow-lg ring-1 ring-accent ring-offset-2 ring-offset-primary">
