@@ -32,9 +32,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-400 ${isScrolled
-        ? 'py-3 border-b border-white/[0.06] bg-deep/95 backdrop-blur-md shadow-xl'
-        : 'py-5 border-b border-transparent bg-deep/40 backdrop-blur-md'
+      className={`fixed w-full z-50 transition-all duration-400 border-b border-accent/20 ${isScrolled
+        ? 'py-3 bg-white shadow-sm'
+        : 'py-5 bg-white'
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
@@ -49,7 +49,7 @@ const Navbar = () => {
             <span className="text-xl font-serif font-bold tracking-tight text-text-heading uppercase leading-none">
               Bear <span className="text-accent italic font-normal">Harbor</span>
             </span>
-            <span className="label text-[7px] tracking-[0.3em] opacity-50 uppercase">Institutional</span>
+            <span className="label text-[7px] tracking-[0.3em] opacity-80 uppercase">Institutional</span>
           </div>
         </NavLink>
 
@@ -62,7 +62,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `relative text-[11px] font-label font-medium uppercase tracking-[0.15em] transition-colors duration-300 no-underline pb-1 ${isActive
                   ? 'text-accent'
-                  : 'text-text-muted hover:text-text-heading'
+                  : 'text-text-heading hover:text-accent'
                 }`
               }
             >
@@ -82,7 +82,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center">
           <NavLink
             to="/contact"
-            className="btn btn-gold-ghost !py-2.5 !px-7 !text-[10px] no-underline"
+            className="btn btn-outline-forest !py-2.5 !px-7 !text-[10px] no-underline"
           >
             CLIENT PORTAL
           </NavLink>
@@ -143,14 +143,14 @@ const Navbar = () => {
               ))}
               <NavLink
                 to="/contact"
-                className="btn btn-gold-ghost mt-6 !px-12 no-underline"
+                className="btn btn-outline-forest mt-6 !px-12 no-underline"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 CLIENT PORTAL
               </NavLink>
             </div>
 
-            <div className="p-8 text-center">
+            <div className="p-8 text-center text-text-muted">
               <p className="label text-[10px]">Zurich · Singapore · New York · Dubai</p>
             </div>
           </motion.div>

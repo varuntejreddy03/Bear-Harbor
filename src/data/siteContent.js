@@ -4,7 +4,7 @@ export const siteContent = {
     { name: 'About', path: '/about' },
     { name: 'Sourcing Capabilities', path: '/capabilities' },
     { name: 'Services', path: '/services' },
-    { name: 'Industries', path: '/industries' },
+    { name: 'Product & Market', path: '/product-and-market' },
     { name: 'Contact', path: '/contact' },
   ],
   companyInfo: {
@@ -170,44 +170,16 @@ export const siteContent = {
   ],
   industries: [
     {
-      title: 'Tech & Electronics',
-      icon: 'developer_board',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+      title: 'Automotive & Electronics',
+      icon: 'precision_manufacturing',
+      image: '/automotive-tech.png',
       items: [
-        'Semiconductors & IC',
-        'Physical / active electronic components',
-        'Printed Circuit Board (PCB)',
-        'Power electronics modules',
+        'Electronic components & sub-assemblies',
+        'Semiconductors & ICs',
+        'PCBs & Power electronics',
+        'Automotive manufacturing inputs',
         'Sensors & electronic modules',
-        'Electronics manufacturing sub-assemblies',
-        'Tools & equipment for electronics manufacturing'
-      ]
-    },
-    {
-      title: 'Distribution & Warehousing',
-      icon: 'inventory_2',
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-      items: [
-        'Storage & material handling equipment',
-        'Material handling',
-        'Shelving & accessories',
-        'Packaging & system products',
-        'Industrial tools, clamps & fittings',
-        'Cold storage & temperature control',
-        'Warehouse technology equipment'
-      ]
-    },
-    {
-      title: 'Tech & Semiconductors',
-      icon: 'memory',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
-      items: [
-        'Semi-conductors & ICs',
-        'Passive & Active electronic components',
-        'Printed Circuit Boards (PCBs)',
-        'Board electronics & modules',
-        'Electronics manufacturing sub-assemblies',
-        'Tools & consumables for electronics manufacturing'
+        'Tools & equipment for manufacturing'
       ]
     },
     {
@@ -215,10 +187,23 @@ export const siteContent = {
       icon: 'shopping_bag',
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800',
       items: [
-        'Home textiles',
-        'Kitchenware',
+        'Home textiles & Kitchenware',
         'Yoga & wellness products',
-        'Bathroom accessories'
+        'Bathroom accessories',
+        'Consumer goods sourcing',
+        'Private label manufacturing'
+      ]
+    },
+    {
+      title: 'Healthcare & Medical',
+      icon: 'medical_services',
+      image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800',
+      items: [
+        'Medical supplies & consumables',
+        'Healthcare diagnostic inputs',
+        'Laboratory equipment',
+        'Protective gear & safety equipment',
+        'Pharmaceutical raw materials'
       ]
     },
     {
@@ -227,14 +212,80 @@ export const siteContent = {
       image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&q=80&w=800',
       items: [
         'Spices & cooking ingredients',
+        'Rice (including Basmati)',
         'Snacks & confectionery',
-        'Baking & beverage products',
-        'Oil & ghee',
-        'Dairy products',
-        'Health & diagnostic foods',
-        'Rice and basmati rice'
+        'Dairy & beverage products',
+        'Oil & Ghee',
+        'Health & diagnostic foods'
+      ]
+    },
+    {
+      title: 'Tech & Manufacturing',
+      icon: 'terminal',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800',
+      items: [
+        'Technology manufacturing inputs',
+        'Contract manufacturing components',
+        'Specialized industrial tools',
+        'Advanced material inputs'
+      ]
+    },
+    {
+      title: 'Distribution & Warehousing',
+      icon: 'inventory_2',
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
+      items: [
+        'Warehouse supply components',
+        'Storage & material handling',
+        'Packaging system products',
+        'Cold storage solutions',
+        'Temperature control equipment'
+      ]
+    },
+    {
+      title: 'Minerals & Industrial Exports',
+      icon: 'volcano',
+      image: '/minerals-export.png',
+      items: [
+        'Industrial minerals to USA',
+        'Bentonite & Calcium Carbonate',
+        'Silica, Dolomite & Bauxite',
+        'Export compliance facilitation'
       ]
     }
+  ],
+  shipping: {
+    headline: 'Shipping & Logistics Workflow',
+    steps: [
+      {
+        title: 'Packaging & Container Loading',
+        items: [
+          'Minerals packaged securely for shipping (bags, liners, crates)',
+          'Loading into 20 ft or 40 ft containers with safety compliance'
+        ]
+      },
+      {
+        title: 'Shipping & Logistics',
+        items: [
+          'Direct shipments to U.S. ports: Houston, Baltimore, Newark, Los Angeles',
+          'Transit times: ~25–35 days depending on route'
+        ]
+      },
+      {
+        title: 'Delivery to Your Facility',
+        items: [
+          'Door-to-door trucking available',
+          'Complete documentation for U.S. customs clearance'
+        ]
+      }
+    ]
+  },
+  sourcingCountries: [
+    'India',
+    'Southeast Asia',
+    'Middle East',
+    'Africa',
+    'South America'
   ]
 };
 

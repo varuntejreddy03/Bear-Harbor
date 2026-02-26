@@ -39,31 +39,16 @@ const HorizontalRule = () => (
 const About = () => {
   const { overview, mission, values, leadership } = siteContent.about;
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const heroImageY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+
 
   return (
     <div className="bg-deep text-text-body overflow-hidden">
       <main>
-        {/* ═══════════ HERO (DEEP: #071510) ═══════════ */}
-        <section ref={heroRef} className="relative min-h-[70vh] flex items-center overflow-hidden pt-20">
-          <div className="noise-overlay" />
+        {/* ═══════════ HERO (Clean Light Theme) ═══════════ */}
+        <section className="relative bg-deep pt-40 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-accent/10">
+          <div className="noise-overlay opacity-20" />
 
-          <motion.div
-            className="absolute inset-0 z-0"
-            style={{ y: heroImageY }}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1400"
-              alt="Institutional Center"
-              className="w-full h-full object-cover grayscale brightness-[0.2]"
-            />
-            {/* Top relief for Navbar */}
-            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-deep/80 via-deep/30 to-transparent pointer-events-none" />
-            <div className="absolute inset-0 bg-deep/50" />
-          </motion.div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full pt-32 pb-24">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
             <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} className="label mb-10">
               Company Ecosystem
             </motion.div>
@@ -82,7 +67,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="mt-12 max-w-2xl text-lg lg:text-xl text-text-muted font-light leading-relaxed border-l border-accent/30 pl-8"
+              className="mt-12 max-w-2xl text-lg lg:text-xl text-text-body font-light leading-relaxed border-l border-accent/30 pl-8"
             >
               {overview.description}
             </motion.p>
@@ -91,7 +76,7 @@ const About = () => {
 
         <HorizontalRule />
 
-        {/* ═══════════ MISSION (MID: #0F2318) ═══════════ */}
+        {/* ═══════════ MISSION (MID: parchment) ═══════════ */}
         <section className="py-24 lg:py-32 bg-mid">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
@@ -118,13 +103,13 @@ const About = () => {
               >
                 <div className="absolute -top-4 -left-4 w-20 h-20 border-l border-t border-accent/40 z-20" />
                 <div className="absolute -bottom-4 -right-4 w-20 h-20 border-r border-b border-accent/40 z-20" />
-                <div className="aspect-square w-full rounded-sm overflow-hidden bg-surface relative grayscale hover:grayscale-0 transition-all duration-1000">
+                <div className="aspect-square w-full rounded-sm overflow-hidden bg-surface relative shadow-xl">
                   <img
                     src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800"
-                    className="w-full h-full object-cover brightness-75"
+                    className="w-full h-full object-cover brightness-100"
                     alt="Institutional workspace"
                   />
-                  <div className="absolute inset-0 bg-deep/30" />
+                  <div className="absolute inset-0 bg-deep/10" />
                 </div>
               </motion.div>
             </div>
@@ -133,7 +118,7 @@ const About = () => {
 
         <HorizontalRule />
 
-        {/* ═══════════ VALUES (MID: #0F2318) ═══════════ */}
+        {/* ═══════════ VALUES (MID: parchment) ═══════════ */}
         <section className="py-24 lg:py-32 bg-mid">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="max-w-3xl mb-20">
@@ -152,7 +137,7 @@ const About = () => {
                   whileInView="visible"
                   custom={idx}
                   viewport={{ once: true }}
-                  className="bg-surface border border-white/[0.03] p-10 flex flex-col gap-8 transition-all duration-500 hover:border-accent/40 hover:-translate-y-2"
+                  className="bg-surface border border-accent/10 p-10 flex flex-col gap-8 transition-all duration-500 hover:border-accent/40 hover:-translate-y-2 shadow-[0_2px_20px_rgba(0,0,0,0.07)]"
                 >
                   <div className="size-14 border border-accent/30 flex items-center justify-center text-accent">
                     <span className="material-symbols-outlined text-3xl">
@@ -160,7 +145,7 @@ const About = () => {
                     </span>
                   </div>
                   <div className="flex flex-col gap-4">
-                    <h3 className="text-xl font-serif font-bold text-text-heading uppercase tracking-tight">{value.title}</h3>
+                    <h3 className="text-xl font-serif font-bold text-forest uppercase tracking-tight">{value.title}</h3>
                     <p className="text-[13px] text-text-muted font-light leading-relaxed">
                       {value.description}
                     </p>
@@ -173,7 +158,7 @@ const About = () => {
 
         <HorizontalRule />
 
-        {/* ═══════════ LEADERSHIP (MID: #0F2318) ═══════════ */}
+        {/* ═══════════ LEADERSHIP (MID: parchment) ═══════════ */}
         <section className="py-24 lg:py-32 bg-mid">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
@@ -185,7 +170,7 @@ const About = () => {
                   whileInView="visible"
                   custom={2}
                   viewport={{ once: true }}
-                  className="text-xl lg:text-2xl text-text-body leading-relaxed font-light border-l-2 border-accent/40 pl-10 italic opacity-90"
+                  className="text-xl lg:text-2xl text-forest leading-relaxed font-light border-l-2 border-accent/40 pl-10 italic"
                 >
                   {leadership.description}
                 </motion.p>
@@ -201,14 +186,14 @@ const About = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="bg-surface border border-white/[0.05] p-12 lg:p-16 relative overflow-hidden group"
+                className="bg-surface border border-accent/10 p-12 lg:p-16 relative overflow-hidden group shadow-xl"
               >
                 <div className="flex items-center justify-center gap-12 lg:gap-16">
                   <div className="text-center group-hover:scale-105 transition-transform duration-700">
                     <span className="material-symbols-outlined text-accent text-6xl mb-4 block">engineering</span>
                     <span className="label text-[9px] block">Technical Vetting</span>
                   </div>
-                  <div className="w-px h-24 bg-white/10" />
+                  <div className="w-px h-24 bg-accent/10" />
                   <div className="text-center group-hover:scale-105 transition-transform duration-700">
                     <span className="material-symbols-outlined text-accent text-6xl mb-4 block">insights</span>
                     <span className="label text-[9px] block">Market Intel</span>

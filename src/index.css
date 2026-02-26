@@ -3,19 +3,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-deep: #071510;
-  --color-mid: #0F2318;
-  --color-surface: #162D1F;
-  --color-primary: #071510;
-  --color-secondary: #0F2318;
+  --color-deep: #F7F4EE;
+  --color-mid: #EDE8DC;
+  --color-surface: #FFFFFF;
+  --color-primary: #F7F4EE;
+  --color-secondary: #EDE8DC;
+  --color-forest: #1A2E1F;
 
   --color-cream: #F5F0E8;
-  --color-accent: #B8955A;
-  --color-accent-hover: #D4AD6A;
-  --color-text-heading: #EDE8DF;
-  --color-text-body: #C8D2CC;
-  --color-text-muted: #7A8C7E;
-  --color-border: rgba(184, 149, 90, 0.15);
+  --color-accent: #C9A84C;
+  --color-accent-hover: #D4B86A;
+  --color-text-heading: #1A2E1F;
+  --color-text-body: #2C3D2E;
+  --color-text-muted: #4A564B;
+  --color-border: rgba(26, 48, 39, 0.1);
 
   --font-sans: "Inter", sans-serif;
   --font-serif: "Cormorant Garamond", serif;
@@ -25,7 +26,7 @@
 @layer base {
   body {
     @apply antialiased font-sans text-text-body selection:bg-accent/40 selection:text-white;
-    background: #0F2318;
+    background: #F7F4EE;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -34,7 +35,7 @@
     letter-spacing: 0;
 
     @media (min-width: 1024px) {
-      cursor: none;
+      /* Removed custom cursor hiding */
     }
   }
 
@@ -49,7 +50,7 @@
 
 @layer components {
   .label {
-    @apply font-label text-[11px] font-medium uppercase tracking-[0.15em] text-accent;
+    @apply font-label text-[11px] font-bold uppercase tracking-[0.15em] text-accent;
   }
 
   .btn {
@@ -57,15 +58,19 @@
   }
 
   .btn-primary {
-    @apply bg-accent text-deep hover:bg-accent-hover;
+    @apply bg-forest text-white hover:bg-forest/90;
   }
 
   .btn-ghost {
-    @apply bg-transparent border border-white/20 text-text-heading hover:border-accent hover:text-accent;
+    @apply bg-transparent border border-forest/20 text-text-heading hover:border-forest hover:text-forest;
   }
 
   .btn-gold-ghost {
-    @apply bg-transparent border border-accent/40 text-accent hover:bg-accent hover:text-deep;
+    @apply bg-transparent border border-accent/40 text-accent hover:bg-accent hover:text-white;
+  }
+
+  .btn-outline-forest {
+    @apply bg-transparent border border-forest text-forest hover:bg-forest hover:text-white;
   }
 
   .horizontal-rule {
@@ -80,7 +85,7 @@ p {
 
 /* Grain texture overlay */
 .noise-overlay {
-  @apply fixed inset-0 pointer-events-none z-[100] opacity-[0.05];
+  @apply fixed inset-0 pointer-events-none z-[100] opacity-[0.03];
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
@@ -89,14 +94,89 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-  background: #071510;
+  background: #F7F4EE;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #B8955A33;
+  background: #1A2E1F33;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B8955A66;
+  background: #1A2E1F66;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SCROLL ANIMATION FALLBACKS & GHOST HEADING FIX
+   ════════════════════════════════════════════════════════════ */
+
+/* Force visibility on all animated components if for any reason
+   IntersectionObserver fails or animations get stuck */
+.framer-motion-fallback,
+[data-framer-component-type],
+.motion-safe {
+  animation-fill-mode: both;
+  animation-play-state: running;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Ensure headings are clean without ghost/strikethrough artifacts */
+h1,
+h2,
+h3,
+h4 {
+  background-clip: padding-box !important;
+  -webkit-background-clip: padding-box !important;
+  text-shadow: none !important;
+  color: #1A2E1F;
+  -webkit-text-fill-color: #1A2E1F;
+  background: none !important;
+}
+
+/* Allow gold accents to break through the dark forest headings */
+h1 .text-accent,
+h2 .text-accent,
+h3 .text-accent,
+h4 .text-accent {
+  color: #C9A84C !important;
+  -webkit-text-fill-color: #C9A84C !important;
+}
+
+/* Remove common watermark/ghost pseudo-elements used for decorative text */
+h1::before,
+h1::after,
+h2::before,
+h2::after,
+h3::before,
+h3::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* CTA Visibility Rules */
+.bg-forest h2,
+.bg-forest h3,
+.bg-forest h4,
+.bg-forest p,
+.bg-forest .label,
+.bg-forest span {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+.bg-forest .cta-body-text,
+.bg-forest p:not(h2, h3, h4) {
+  color: rgba(255, 255, 255, 0.85) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.85) !important;
 }
