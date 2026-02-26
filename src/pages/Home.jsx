@@ -38,6 +38,7 @@ const HorizontalRule = () => (
 
 const Home = () => {
   const { hero, whoWeAre, whatWeSource, approach } = siteContent.home;
+  const getSlug = (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
   return (
     <div className="text-text-body bg-deep">
@@ -46,7 +47,11 @@ const Home = () => {
       {/* ═══════════ HERO (REFINED LAYOUT) ═══════════ */}
       {/* ═══════════ HERO (Clean Light Theme Centered) ═══════════ */}
       <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden bg-deep pt-40 pb-24 lg:pt-48 lg:pb-32 border-b border-accent/10">
-        <div className="noise-overlay opacity-20" />
+        <div className="absolute inset-0 z-0 bg-[#F5F0E8] pointer-events-none">
+          <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&q=80&w=2000" alt="Home Background" className="w-full h-full object-cover opacity-[0.45] mix-blend-normal" />
+          <div style={{ background: 'linear-gradient(135deg, rgba(245,240,232,0.55) 0%, rgba(245,240,232,0.25) 60%, rgba(245,240,232,0.15) 100%)' }} className="absolute inset-0" />
+        </div>
+        <div className="noise-overlay relative z-0" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full text-center flex flex-col items-center">
           <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} className="label mb-10">
@@ -60,7 +65,7 @@ const Home = () => {
             className="text-text-heading text-[clamp(2.5rem,6vw,5.5rem)] font-serif font-bold leading-[1.05] tracking-tight uppercase max-w-4xl mx-auto"
           >
             Product and Market,<br />
-            <span className="text-accent italic font-normal normal-case">executed with precision.</span>
+            <span className="hero-italic-line italic font-normal normal-case">executed with precision.</span>
           </motion.h1>
 
           <div className="mt-12 mb-12 h-[1px] bg-accent/30 relative overflow-hidden w-64 mx-auto">
@@ -162,6 +167,50 @@ const Home = () => {
                     </ul>
                     <div className="flex items-center justify-between pt-4 border-t border-accent/10">
                       <span className="text-[10px] tracking-widest uppercase font-label text-text-muted">View Specs</span>
+                      <span className="material-symbols-outlined text-accent text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </div>
+                  </div>
+                </NavLink>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ PRODUCT & MARKET (DEEP: #F7F4EE ivory) ═══════════ */}
+      <section className="py-24 lg:py-32 bg-deep">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-12 mb-20">
+            <div className="max-w-2xl">
+              <SectionHeading label="Global Reach" title="Product & Market" />
+              <p className="text-text-body text-lg font-light leading-relaxed opacity-90">
+                Serving diverse industrial sectors with targeted sourcing and supply chain solutions.
+              </p>
+            </div>
+            <NavLink to="/product-and-market" className="btn btn-outline-forest px-10 mb-2">
+              VIEW MARKETS
+            </NavLink>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {siteContent.industries.map((ind, idx) => (
+              <motion.div key={ind.title} variants={fadeUp} initial="hidden" whileInView="visible" custom={idx % 4} viewport={{ once: true }} className="h-full relative">
+                <NavLink to={`/product-and-market/${getSlug(ind.title)}`} className="group block bg-surface border border-accent/10 h-full no-underline transition-all duration-500 hover:border-accent/40 hover:-translate-y-2 shadow-[0_2px_20px_rgba(0,0,0,0.07)]">
+                  <div className="aspect-[4/3] overflow-hidden relative">
+                    <img src={ind.image} className="w-full h-full object-cover grayscale brightness-95 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" alt={ind.title} />
+                    <div className="absolute top-4 right-4 size-10 bg-white/90 backdrop-blur-sm border border-accent/30 flex items-center justify-center text-accent">
+                      <span className="material-symbols-outlined text-xl">{ind.icon}</span>
+                    </div>
+                  </div>
+                  <div className="p-8">
+                    <span className="label text-[9px] mb-4 block">{ind.title}</span>
+                    <ul className="space-y-3 mb-8">
+                      {ind.items.slice(0, 3).map(item => (
+                        <li key={item} className="text-forest text-[13px] font-medium">{item}</li>
+                      ))}
+                    </ul>
+                    <div className="flex items-center justify-between pt-4 border-t border-accent/10">
+                      <span className="text-[10px] tracking-widest uppercase font-label text-text-muted">Explore</span>
                       <span className="material-symbols-outlined text-accent text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
                     </div>
                   </div>

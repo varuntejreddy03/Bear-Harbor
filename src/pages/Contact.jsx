@@ -26,7 +26,11 @@ const Contact = () => {
       <main>
         {/* ═══════════ HERO (Clean Light Theme) ═══════════ */}
         <section className="relative bg-deep pt-40 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-accent/10">
-          <div className="noise-overlay opacity-20" />
+          <div className="absolute inset-0 z-0 bg-[#F5F0E8] pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80&w=2000" alt="Contact Background" className="w-full h-full object-cover opacity-[0.45] mix-blend-normal" />
+            <div style={{ background: 'linear-gradient(135deg, rgba(245,240,232,0.55) 0%, rgba(245,240,232,0.25) 60%, rgba(245,240,232,0.15) 100%)' }} className="absolute inset-0" />
+          </div>
+          <div className="noise-overlay relative z-0" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
             <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} className="label mb-10">
@@ -40,7 +44,7 @@ const Contact = () => {
               className="text-text-heading text-[clamp(2.5rem,6vw,5.5rem)] font-serif font-bold leading-[1.05] tracking-tight uppercase"
             >
               Connect with <br />
-              <span className="text-accent italic font-normal normal-case">our global desk.</span>
+              <span className="hero-italic-line italic font-normal normal-case">our global desk.</span>
             </motion.h1>
           </div>
         </section>
@@ -67,7 +71,7 @@ const Contact = () => {
                   initial="hidden"
                   whileInView="visible"
                   custom={2}
-                  className="text-lg lg:text-xl text-text-muted font-light leading-relaxed border-l border-accent/30 pl-8 italic"
+                  className="section-body-text border-l border-accent/40 pl-8"
                 >
                   Provide technical specifications for your global requirement. Our trade desk will engineer a structured response within 24-48 business hours.
                 </motion.p>

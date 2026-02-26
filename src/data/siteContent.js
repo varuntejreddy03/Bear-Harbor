@@ -5,6 +5,7 @@ export const siteContent = {
     { name: 'Sourcing Capabilities', path: '/capabilities' },
     { name: 'Services', path: '/services' },
     { name: 'Product & Market', path: '/product-and-market' },
+    { name: 'Shipping & Logistics', path: '/shipping-logistics' },
     { name: 'Contact', path: '/contact' },
   ],
   companyInfo: {
@@ -262,21 +263,24 @@ export const siteContent = {
         items: [
           'Minerals packaged securely for shipping (bags, liners, crates)',
           'Loading into 20 ft or 40 ft containers with safety compliance'
-        ]
+        ],
+        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200'
       },
       {
         title: 'Shipping & Logistics',
         items: [
           'Direct shipments to U.S. ports: Houston, Baltimore, Newark, Los Angeles',
           'Transit times: ~25–35 days depending on route'
-        ]
+        ],
+        image: 'https://images.unsplash.com/photo-1559297434-fae8a15f6281?auto=format&fit=crop&q=80&w=1200'
       },
       {
         title: 'Delivery to Your Facility',
         items: [
           'Door-to-door trucking available',
           'Complete documentation for U.S. customs clearance'
-        ]
+        ],
+        image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200'
       }
     ]
   },
@@ -285,7 +289,9 @@ export const siteContent = {
     'Southeast Asia',
     'Middle East',
     'Africa',
-    'South America'
+    'South America',
+    'North America',
+    'Europe'
   ]
 };
 

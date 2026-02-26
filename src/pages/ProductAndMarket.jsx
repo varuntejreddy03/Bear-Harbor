@@ -39,13 +39,18 @@ const HorizontalRule = () => (
 const ProductAndMarket = () => {
   const industries = siteContent.industries;
   const shipping = siteContent.shipping;
+  const getSlug = (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
   return (
     <div className="bg-deep text-text-body overflow-hidden">
       <main>
         {/* ═══════════ HERO (Clean Light Theme) ═══════════ */}
         <section className="relative bg-deep pt-40 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-accent/10">
-          <div className="noise-overlay opacity-20" />
+          <div className="absolute inset-0 z-0 bg-[#F5F0E8] pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2000" alt="Product and Market Background" className="w-full h-full object-cover opacity-[0.45] mix-blend-normal" />
+            <div style={{ background: 'linear-gradient(135deg, rgba(245,240,232,0.55) 0%, rgba(245,240,232,0.25) 60%, rgba(245,240,232,0.15) 100%)' }} className="absolute inset-0" />
+          </div>
+          <div className="noise-overlay relative z-0" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
             <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} className="label mb-10">
@@ -59,14 +64,14 @@ const ProductAndMarket = () => {
               className="text-text-heading text-[clamp(2.5rem,6vw,5.5rem)] font-serif font-bold leading-[1.05] tracking-tight uppercase"
             >
               Product <br />
-              <span className="text-accent italic font-normal normal-case">& Markets.</span>
+              <span className="hero-italic-line italic font-normal normal-case">& Markets.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="mt-12 max-w-2xl text-lg lg:text-xl text-text-muted font-light leading-relaxed border-l border-accent/30 pl-8"
+              className="mt-12 section-body-text border-l border-accent/40 pl-8"
             >
               We provide essential raw materials and strategic sourcing solutions to the backbone of the global economy, specializing in US-bound industrial supply chains.
             </motion.p>
@@ -94,6 +99,7 @@ const ProductAndMarket = () => {
                   viewport={{ once: true }}
                 >
                   <div className="group block h-full bg-surface border border-accent/10 overflow-hidden no-underline transition-all duration-500 hover:border-accent/40 hover:-translate-y-2 shadow-[0_2px_20px_rgba(0,0,0,0.07)]">
+                    <NavLink to={`/product-and-market/${getSlug(category.title)}`} className="absolute inset-0 z-10 block" aria-label={`View ${category.title} details`}></NavLink>
                     <div className="aspect-[4/5] overflow-hidden relative">
                       <img
                         src={category.image}

@@ -6,6 +6,8 @@ import About from './pages/About';
 import Capabilities from './pages/Capabilities';
 import Services from './pages/Services';
 import ProductAndMarket from './pages/ProductAndMarket';
+import IndustryDetail from './pages/IndustryDetail';
+import ShippingLogistics from './pages/ShippingLogistics';
 import Contact from './pages/Contact';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path="/capabilities" element={<Capabilities />} />
           <Route path="/services" element={<Services />} />
           <Route path="/product-and-market" element={<ProductAndMarket />} />
+          <Route path="/product-and-market/:slug" element={<IndustryDetail />} />
+          <Route path="/shipping-logistics" element={<ShippingLogistics />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </PageLayout>

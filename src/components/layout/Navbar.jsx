@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { siteContent } from '../../data/siteContent';
 import { motion, AnimatePresence } from 'framer-motion';
+import SearchModal from '../common/SearchModal';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,6 +27,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsSearchOpen(false);
     window.scrollTo(0, 0);
   }, [location]);
 
@@ -76,27 +79,35 @@ const Navbar = () => {
               )}
             </NavLink>
           ))}
-        </div>
-
-        {/* Right: CLIENT PORTAL button */}
-        <div className="hidden lg:flex items-center">
-          <NavLink
-            to="/contact"
-            className="btn btn-outline-forest !py-2.5 !px-7 !text-[10px] no-underline"
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="text-text-heading hover:text-accent transition-colors ml-2"
+            aria-label="Search site"
           >
-            CLIENT PORTAL
-          </NavLink>
+            <span className="material-symbols-outlined text-[20px] mt-1 hidden lg:block">search</span>
+          </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <div className={`w-6 h-[1.5px] bg-text-heading transition-all duration-400 ${isMobileMenuOpen ? 'rotate-45 translate-y-[5px]' : ''}`} />
-          <div className={`w-6 h-[1.5px] bg-text-heading transition-all duration-400 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-          <div className={`w-4 h-[1.5px] bg-text-heading transition-all duration-400 self-end ${isMobileMenuOpen ? '-rotate-45 -translate-y-[5px] !w-6' : ''}`} />
-        </button>
+
+
+        {/* Mobile Toggle & Search */}
+        <div className="flex items-center gap-4 lg:hidden">
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="text-text-heading hover:text-accent transition-colors"
+            aria-label="Search site"
+          >
+            <span className="material-symbols-outlined text-[22px] mt-1">search</span>
+          </button>
+          <button
+            className="flex flex-col gap-1.5 p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <div className={`w-6 h-[1.5px] bg-text-heading transition-all duration-400 ${isMobileMenuOpen ? 'rotate-45 translate-y-[5px]' : ''}`} />
+            <div className={`w-6 h-[1.5px] bg-text-heading transition-all duration-400 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+            <div className={`w-4 h-[1.5px] bg-text-heading transition-all duration-400 self-end ${isMobileMenuOpen ? '-rotate-45 -translate-y-[5px] !w-6' : ''}`} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -141,21 +152,14 @@ const Navbar = () => {
                   </NavLink>
                 </motion.div>
               ))}
-              <NavLink
-                to="/contact"
-                className="btn btn-outline-forest mt-6 !px-12 no-underline"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                CLIENT PORTAL
-              </NavLink>
+
             </div>
 
-            <div className="p-8 text-center text-text-muted">
-              <p className="label text-[10px]">Zurich · Singapore · New York · Dubai</p>
-            </div>
+
           </motion.div>
         )}
       </AnimatePresence>
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </nav>
   );
 };
