@@ -272,7 +272,7 @@ export const siteContent = {
           'Direct shipments to U.S. ports: Houston, Baltimore, Newark, Los Angeles',
           'Transit times: ~25–35 days depending on route'
         ],
-        image: 'https://images.unsplash.com/photo-1559297434-fae8a15f6281?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&q=80&w=1200'
       },
       {
         title: 'Delivery to Your Facility',
